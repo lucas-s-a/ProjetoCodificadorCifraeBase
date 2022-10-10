@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base 64</title>
+    <link rel="stylesheet" href="ccs/estilodosbascif.css">
+</head>
+<body>
+    <header>
+        <section><h1>Codificardor base64 e Cifra de Cesar 2.0</h1></section>
+    </header>
+    <main id="area-principal">        
+        <article class="basetextosb">
+                <p>Base 64 - A forma que é calculada o Base 64 é um pouco complexa,Por Exemplo:</p>
+                <p>Vamos usar a palavra Oi que terá como saída em código Base64: T2k= </p>
+                <p>a princípio parece simples porém é bem complexo:</p>
+                <p>Primeiro pegamos o número Ascci dessa letra e ao achar o número ele é convertido em binário</p>
+                <p>Letra - O:01001111  e  Letra - i:01101001</p>
+                <p>A partir daí partiremos em bloco de 6 números dessa forma:</p>
+                <p>010011 110110 100100 (2 números 'Zeros' foram adicionados pois o bloco ficaria incompleto)</p>
+            
+                <p>devido a esse preenchimento iremos aumentar 2 zeros á esquerda:</p>
+            
+                <p>00010011 00110110 00100100</p>
+                        
+                <p>a partir daí faremos o calculo x*2<sup>y</sup></p>
+                <p>onde: x corresponde a 0 ou 1</p>
+                <p>y irá iniciar do 0 e aumenta +1 a cada 0 ou 1 calculado</p>
+                <p>Exemplo Calculo da Sequência (00010011 00110110 00100100):</p>
+        </article>
+        <div >
+            <img class="imgexplicativa" src="Imagens/Imgbase64texte.jpg" alt="bloquino">
+        </div>
+        <a href="index.html"><button class="estilobotao">Voltar</button></a>
+    </main>
+    <footer>
+        Direitos Reservados
+    </footer>
+    
+</body>
+</html>

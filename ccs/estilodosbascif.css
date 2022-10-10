@@ -1,0 +1,225 @@
+*{
+    padding: 0;
+    margin:0;
+}
+body{
+    font-size: 1em;
+    font-family: "trebuchet MS", Helvetica, sans-serif;
+    background: #022840;
+    color:rgb(213, 221, 211);
+}
+header{
+    background: #021140;
+    text-align: center;
+    padding: 20px;      
+}
+h1{
+    color:#fff;
+    text-shadow:8px 8px rgba(0,0,0,0.5);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+footer{
+    background: #021140;
+    text-align: center;
+    padding: 50px;
+    margin-top: 100px;   
+}
+a{
+    color:#06206d;
+    text-decoration: none;
+}
+/* corpo da página em posição padrão*/
+#area-principal{
+    max-width: 890px;
+    margin: 15px auto;
+    text-align: center;
+}
+.label-name{
+    font-size:1.5em;
+    background: rgba(2,89,32,0.7);;
+    font-family:'Roboto', sans-serif;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.botoesemradio{
+    font-size:2em;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(2,89,32,0.7);
+    border:#021140 solid 3px;
+    padding: 5px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.botaocolado{
+    margin: 5px;
+    align-items: baseline;
+}
+.basetexto{
+    max-width: 610px;
+    text-align: left;
+    background:rgba(255, 254, 254, 0.75) ;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 5px;
+    animation:efeitocaixabase 3s 0.1s;
+    margin-left: 105px;
+    color:rgb(0, 0, 0);
+}
+.basetextosb{
+    max-width: 610px;
+    text-align: left;
+    background:rgba(255, 254, 254, 0.75) ;
+    border-radius: 7px;
+    padding: 10px;
+    animation:efeitocaixabaseb 2s 0.1s;
+    margin: 5px;
+    margin-left: 105px;
+    color:rgb(0, 0, 0);
+}
+@keyframes efeitocaixabaseb {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes efeitocaixabase {
+    0% {
+        transform: translateX(-100px);
+    }
+    50% {transform: translateX(50px);
+        
+    } 
+    100%{transform: translateX(auto);}
+}
+.imgexplicativa{
+    max-width:99.5%;
+    border-radius: 15px;
+    padding-top: 13px;
+}
+.Cifratexto{
+    max-width: 610px;
+    background:rgba(255, 254, 254, 0.75) ;
+    text-align: left;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 5px;
+    position: relative;
+    animation:efeitocaixacifra 0.5s 0.1s;
+    margin-left: 105px;
+    color:rgb(0, 0, 0);
+}
+@keyframes efeitocaixacifra {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(auto);
+    } 
+}
+.imgdireita{
+    max-width: 10vh;
+    float: right;
+}
+.imgesquerda{
+    max-width: 10vh;
+    float: left;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: -50px;
+}
+#texto1{
+    margin: 45px auto;
+}
+#programa{
+    margin: 5px;
+    box-shadow: 5px 5px 4px rgba(0,0,0,0.5);
+    background: #6093BF;
+    border-radius: 20px; 
+}
+#campodoprograma{
+    border-radius: 20px;
+}
+/*id base 64 e cifra*/
+#containercifra{
+    background: #6093BF;
+}
+.layoutletrasbotaoselecao{
+    text-align: left;
+    font-size: 1.3em;
+    padding: 10px;
+}
+#containerbase64{
+    background: #6093BF;
+}
+h2{
+    background: rgb(12, 8, 0);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.resposta{
+    background: #1c7505;
+    font-size: 1.3em;
+    padding: 10px;
+    font-family:'Roboto', sans-serif;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+#deslocamento{
+    width: 5vh;
+}
+#abalateral{
+    float:right;
+}
+/* Página saiba mais*/
+.estilobotao{
+    position: relative;
+    float: right;
+    padding: 2%;
+    border-radius: 12px;
+    font-size: 0.8em;
+    background: #6093BF;
+}
+@media(max-width:1000px){
+    .imgesquerda{
+        margin-left: inherit;
+    }
+}
+@media(max-width:800px){
+    .imgdireita{
+        float: initial;
+    }
+    .imgesquerda{
+        float: initial;
+    }
+    .Cifratexto{
+        margin-left: initial;
+    }
+    .basetexto{
+        margin-left: initial;
+    }
+}
+@media(max-width:600px){
+    .basetextosb{
+        margin: initial;
+        margin-left: initial;
+    }
+}
+@media(max-width:300px){
+    #textopracodar{
+        margin: initial;
+    }
+    #programa{
+        margin: initial;
+        background: initial;
+    }
+    .label-name{
+        font-size:initial;
+    }
+    .botoesemradio{
+        font-size:initial;
+        padding: initial;
+    }
+    #campodoprograma{
+        width: 50%;
+    }
+}

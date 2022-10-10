@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Cifra/Base64</title>
+    <link rel="stylesheet" href="ccs/estilodosbascif.css">
+</head>
+<body>
+    <header>
+        <section><h1>Codificardor base64 e Cifra de Cesar 2.0</h1></section>
+    </header>
+    <main id="area-principal">
+        <aside> <img class="imgdireita" src="Imagens/jcimg-removebg-preview.png" alt="cesar">
+        </aside>
+        <article class="Cifratexto">
+            <p>Cifra de Cesar  - É uma cifra que substituí cada letra na ordem alfabética em um certo número de posições,recebe o nome do imperador Júlio Cesar que supostamente usava para comunicar seus generais.</p>
+        </article>
+        <aside> <img class="imgesquerda" src="Imagens/Base64img.jpg" alt="cesar">
+        </aside>       
+        <article class="basetexto">
+            <p>Base64 - Ele não é usado para criptografia de dados, historicamente é um recurso usado para tranferir textos e imagens sem correr risco de ter os dados corrompidos.Caso queira conhecer o cálculo clique em <a href="Saibamais.html">" Saber Mais. "</a></p>
+        </article>
+        <article id="texto1">
+            <p>Observações: É importante entender que letras maiúsculas e minúsculas tem representações em código diferente,
+                não são iguais mesmo sendo mesma letra.</p>
+            <p>Aqui na página voce poderá ter a frase convertida nessa base e se quiser decodificar ela também terá sucesso</p>
+            <p>Caso queira pegar a frase decodificada na página, poderá descodificar colocando o mesmo incremento ultilizado para codificar ela retornará descodificada</p>
+        </article>
+        <form action="" id="programa">
+            <fieldset id="campodoprograma">
+                <div class="label-name">
+                    <label for="">DIGITE AQUI SUA MENSAGEM</label><br>
+                    <textarea name="" id="textopracodar" cols="30" rows="10" placeholder="Escreva aqui Sua Mensagem"></textarea>
+                </div>
+                <div class='botoesemradio'>
+                    <label for="">E ESCOLHA UM</label><br><br>
+                    <input type="radio" name="b" class="botaocolado" id="cifra" value="C" >CIFRA DE CESAR    
+                    <input type="radio" name="b" class="botaocolado" id="base" value="D" >BASE64<br>
+                </div>
+                <div id="nav"></div>
+                <div id="nav2"></div>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        &copy; Todos os Direitos Reservados
+    </footer>
+    <script>
+        function abrircifraoubase(){
+            let c = document.getElementById('textopracodar').value
+            if(document.getElementById('cifra').checked == true){
+            sel1 = document.querySelector ("#nav");
+            sel1.innerHTML = `
+            <div id="containercifra">
+                <div class="layoutletrasbotaoselecao">
+                    <label for="">Digite a quantidade de posições para deslocar cada letra</label>
+                    <input id="deslocamento" type="number" placeholder="nº">
+                </div>
+                <div class="layoutletrasbotaoselecao">
+                    <input type="radio" class="botaocolado" name="c" id="codificar" value="C" onClick="CodificarDesCodCif()">Codificar<br>
+                    <input type="radio" class="botaocolado" name="c" id="descodificar" value="D" onClick="CodificarDesCodCif()">Descodificar<br>
+                </div>
+            </div>`;
+            sel2 = document.querySelector ("#nav2");
+            sel2.innerHTML = `<h2>Codificar/Descodificar Cifra de Cesar</h2>`
+            ;
+            }
+            else if(document.getElementById('base').checked == true){
+                navHeader = document.querySelector ("#nav");
+                navHeader.innerHTML = `
+                <div id="containerbase64">
+                    <div class="layoutletrasbotaoselecao">
+                    <input type="radio" class="botaocolado" name="c" id="codificarbase" value="C" onClick="base64()">Codificar<br>
+                    <input type="radio" class="botaocolado" name="c" id="descodificarbase" value="D" onClick="base64()">Descodificar<br>
+                    </div>
+                </div>`;
+                sel2 = document.querySelector ("#nav2");
+                sel2.innerHTML = `<h2>Codificar/Descodificar Base64</h2>`;
+            }
+        }
+        function CodificarDesCodCif(){
+            let msg = document.getElementById('textopracodar').value
+            let number = document.getElementById('deslocamento').value
+            number = Number(number)
+            nmsg = ''
+            vmsg = ''
+            for (carac of msg){
+                const cod = carac.charCodeAt(0)
+                if((cod >= 65 && cod <= 90)){//maiúsculos
+                    const codi = carac.charCodeAt(0)
+                    const novcodi = (codi-90 + number)%26+90
+                    const nov_cara = String.fromCharCode(novcodi)
+                    nmsg += nov_cara
+                }else if((cod >= 97 && cod <= 122)){//minusculos
+                    const codi = carac.charCodeAt(0)
+                    const novcodi = (codi-97 + number)%26+97
+                    const nov_cara = String.fromCharCode(novcodi)
+                    nmsg += nov_cara    
+                }else if((cod >= 48 && cod <= 57)){//numeros
+                    const codi = carac.charCodeAt(0)
+                    const novcodi = (codi-48 + number)%10+48
+                    const nov_cara = String.fromCharCode(novcodi)
+                    nmsg += nov_cara
+                }
+                else{
+                    nmsg += carac
+                }
+            }
+            for (caracc of msg){
+                const cod = caracc.charCodeAt(0)
+                if((cod >= 65 && cod <= 90)){//maiúsculos
+                    const codi = caracc.charCodeAt(0)
+                    const novcodi = (codi-90 - number)%26+90
+                    const nov_cara = String.fromCharCode(novcodi)
+                    vmsg += nov_cara
+                }else if((cod >= 97 && cod <= 122)){//minusculos
+                    const codi = caracc.charCodeAt(0)
+                    const novcodi = (codi-97 - number)%26+97
+                    const nov_cara = String.fromCharCode(novcodi)
+                    vmsg += nov_cara    
+                }else if((cod >= 48 && cod <= 57)){//numeros
+                    const codi = caracc.charCodeAt(0)
+                    const novcodi = (codi-48 - number)%10+48
+                    const nov_cara = String.fromCharCode(novcodi)
+                    vmsg += nov_cara
+                }
+                else{
+                    vmsg += caracc
+                }
+            }
+            if(document.getElementById('codificar').checked == true){
+                sel1 = document.querySelector ("#nav2");
+                sel1.innerHTML = `<h3 class="resposta">Codificar Mensagem! </br> ${nmsg}</h3>`
+            }
+            else if(document.getElementById('descodificar').checked == true){
+                sel1 = document.querySelector ("#nav2");
+                sel1.innerHTML = `<h3 class="resposta">Descodificar Mensagem!</br> ${vmsg}</h3>`
+            };
+        }
+        function base64(){
+            let c = document.getElementById('textopracodar').value
+            if(document.getElementById('codificarbase').checked == true){
+                var s = btoa(c)
+                sel2 = document.querySelector ("#nav2");
+                sel2.innerHTML = `<h3 class="resposta">${s}</h3>`;
+            }else if(document.getElementById('descodificarbase').checked == true){
+                var s = atob(c)
+                sel2 = document.querySelector ("#nav2");
+                sel2.innerHTML = `<h3 class="resposta">${s}</h3>`;
+            }
+        }
+        cifra.addEventListener('click',abrircifraoubase)
+        base.addEventListener('click',abrircifraoubase)
+    </script>
+    
+</body>
+</html>
